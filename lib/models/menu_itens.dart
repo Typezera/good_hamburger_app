@@ -1,9 +1,8 @@
-import 'dart:ffi';
 
 class MenuItem {
   final String id;
   final String name;
-  final Double price;
+  final double price;
   final String category;
 
 

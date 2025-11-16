@@ -6,7 +6,7 @@ import '../models/menu_itens.dart';
 class MenuService {
   Future<List<MenuItem>> fetchMenu() async {
     // simulates network delay
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(Duration(seconds: 10));
 
     //load  the file from the 'lib/data/' directory
     final String response = await rootBundle.loadString('lib/data/menu_data.json');
