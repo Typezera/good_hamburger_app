@@ -23,3 +23,9 @@ class MenuItem {
   }
 
 }
+
+enum MenuFilter {
+  all,
+  sandwich,
+  extra,
+}
