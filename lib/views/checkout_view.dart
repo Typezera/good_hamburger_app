@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/cart_provider.dart';
 import '../models/discount_result.dart';
+import '../providers/order_provider.dart';
 
 class CheckoutView extends ConsumerWidget {
   final TextEditingController nameController = TextEditingController();
@@ -9,8 +10,9 @@ class CheckoutView extends ConsumerWidget {
   @override  
   Widget build(BuildContext context, WidgetRef ref) {
     //Listens to the status of the cart and calculates the discount
-
     final result = ref.watch(cartProvider.notifier).calculatedDiscount();
+
+    final cartItems = ref.watch(cartProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -54,12 +56,28 @@ class CheckoutView extends ConsumerWidget {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text('Please enter your name'),
+                      backgroundColor: Colors.red,
                   ),
                 );
                   return;
                 }
+                ref.read(orderProvider.notifier).submitOrder(
+                  nameController.text.trim(), //client name
+                  cartItems,                  //itens on cart
+                  result,                     
+                ); 
+                //clear cart
+                ref.read(cartProvider.notifier).clearCart();
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Order Submitted Successfully'),
+                    backgroundColor: Colors.green,
+                  ),
+                );
+
+                // navigate back to the main screen
                 Navigator.popUntil(context, (route) => route.isFirst);
-                ref.read(cartProvider.notifier).clearCart(); //clear cart
               },
               child: Text('Submit Order'),
               style: ElevatedButton.styleFrom(

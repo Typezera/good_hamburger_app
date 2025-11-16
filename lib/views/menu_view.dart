@@ -4,6 +4,7 @@ import '../models/menu_itens.dart';
 import '../providers/menu_provider.dart';
 import '../providers/cart_provider.dart';
 import 'cart_view.dart';
+import 'orders_view.dart';
 
 //Use a consumer widget for watch a provider.
 class MenuView extends ConsumerWidget {
@@ -21,8 +22,15 @@ class MenuView extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Menu Good Hamburger'),
-
         actions: [
+          IconButton(
+            icon: Icon(Icons.history),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => OrdersView()),
+              );
+            },
+          ),
           Stack(
             alignment: Alignment.center,
             children: [
