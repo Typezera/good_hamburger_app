@@ -1,0 +1,32 @@
+[
+    {
+        "id": "b01",
+        "name": "Burger",
+        "price": 5.00,
+        "category": "Sandwich"
+    },
+    {
+        "id": "e01",
+        "name": "Egg",
+        "price": 4.50,
+        "category": "Sandwich"      
+    },
+    {
+        "id": "c01",
+        "name": "Bacon",
+        "price": 7.00,
+        "category": "Sandwich"
+    },
+    {
+        "id": "f01",
+        "name": "Fries",
+        "price": 2.00,
+        "category": "Extra"
+    },
+    {
+        "id": "s01",
+        "name": "Soft Drink",
+        "price": 2.50,
+        "category": "Extra"
+    }
+]
