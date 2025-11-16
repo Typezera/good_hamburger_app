@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/cart_provider.dart';
+import 'checkout_view.dart';
 
 class CartView extends ConsumerWidget {
   @override 
@@ -72,7 +73,9 @@ class CartView extends ConsumerWidget {
                 ElevatedButton(
                   //Navigate to the checkout screen
                   onPressed: cartItems.isEmpty ? null : () {
-
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => CheckoutView())
+                    );
                   },
                   child: Text('Finish order'),
                   style: ElevatedButton.styleFrom(
