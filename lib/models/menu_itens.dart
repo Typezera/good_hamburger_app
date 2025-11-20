@@ -6,7 +6,7 @@ class MenuItem {
   final String category;
 
 
-  MenuItem({
+  const MenuItem({
     required this.id,
     required this.name,
     required this.price,
