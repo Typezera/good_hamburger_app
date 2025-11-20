@@ -31,20 +31,23 @@ class CartView extends ConsumerWidget {
                   itemCount: cartItems.length,
                   itemBuilder: (context, index) {
                     final item = cartItems[index];
-                    return ListTile(
-                      title: Text(item.name),
-                      subtitle: Text(item.category),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text('\$${item.price.toStringAsFixed(2)}'),
-                          IconButton(
-                            icon: Icon(Icons.remove_circle, color: Colors.red),
-                            onPressed:() {
-                              cartNotifier.removeItem(item.id);
-                            },
-                          )
-                        ],
+                    return Card(
+                      elevation: 2,
+                      margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      child: ListTile(
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text('\$${item.price.toStringAsFixed(2)}', style: TextStyle(fontSize: 16),),
+                            IconButton(
+                              icon: Icon(Icons.remove_circle, color: Theme.of(context).primaryColor),
+                              onPressed:() {
+                                cartNotifier.removeItem(item.id);
+                              },
+                            )
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -80,8 +83,11 @@ class CartView extends ConsumerWidget {
                   child: Text('Finish order'),
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity, 50),
-                  )
-                )
+                    backgroundColor: Theme.of(context).primaryColor,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  ),
+                ),
               ],
             ),
           )
