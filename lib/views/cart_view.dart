@@ -36,6 +36,9 @@ class CartView extends ConsumerWidget {
                       margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                       child: ListTile(
+                        title: Text(item.name, style: TextStyle(fontWeight: FontWeight.w600)),
+                        subtitle: Text(item.category, style: TextStyle(color: Colors.grey[600])),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -80,7 +83,7 @@ class CartView extends ConsumerWidget {
                       MaterialPageRoute(builder: (context) => CheckoutView())
                     );
                   },
-                  child: Text('Finish order'),
+                  child: Text('Finish Order', style: TextStyle(fontSize: 18)),
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity, 50),
                     backgroundColor: Theme.of(context).primaryColor,

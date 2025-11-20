@@ -43,7 +43,9 @@ class CheckoutView extends ConsumerWidget {
               controller: nameController,
               decoration: InputDecoration(
                 labelText: 'Your Name: ',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8)
+                ),
               ),
 
             ),
@@ -79,10 +81,12 @@ class CheckoutView extends ConsumerWidget {
                 // navigate back to the main screen
                 Navigator.popUntil(context, (route) => route.isFirst);
               },
-              child: Text('Submit Order'),
+              child: Text('Submit Order', style: TextStyle(fontSize: 18)),
               style: ElevatedButton.styleFrom(
-                maximumSize: Size(double.infinity, 56),
-                backgroundColor: Colors.teal,
+                maximumSize: Size(double.infinity, 55),
+                backgroundColor: Theme.of(context).primaryColor,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               ),
             )
           ],
