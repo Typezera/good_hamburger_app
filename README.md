@@ -36,7 +36,7 @@ O projeto foi construído usando práticas modernas de engenharia de software:
 * Emulador ou dispositivo Android/iOS iniciado.
 
 ### Instalação e Execução
-1.  **Clone o repositório.**
+1.  **Clone o repositório.** [https://github.com/Typezera/good_hamburger_app.git]
 2.  **Instale as dependências:**
     ```bash
     flutter pub get
